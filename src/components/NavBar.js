@@ -11,7 +11,7 @@ const NavBar = () => {
                 </header>
                 <nav style={styles.nav}>
                     <span style={styles.iniciobtn}>Inicio</span>
-                    <span style={styles.productosbtn}>Productos</span>
+                    <span style={styles.productosbtn}>Prductos</span>
                     <span style={styles.contactobtn}>Contacto</span>
                 </nav>  
             </div>

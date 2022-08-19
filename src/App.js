@@ -17,6 +17,7 @@ function App() {
       <ItemListContainer greeting={"HOLA MUNDO"} />
       <Routes>
         <Route exact path='/' element={<Inicio />} />
+        <Route exact path='/AHA' element={<Inicio />} />
         <Route exact path='/nosotros' element={<Nosotros />} />
         <Route exact path='/productos' element={<Productos />} />
         <Route exact path='/contacto' element={<Contacto />} />

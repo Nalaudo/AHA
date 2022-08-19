@@ -7,8 +7,7 @@ import Productos from './pages/Productos';
 import Contacto from './pages/Contacto.js';
 import Cart from './pages/Cart.js';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-import ItemListContainer from './components/ItemListContainer/ItemListContainer.js';
+import ItemListContainer from './components/itemListContainer/itemListContainer.js';
 
 function App() {
   return (
@@ -18,6 +17,7 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Inicio />} />
         <Route exact path='/AHA' element={<Inicio />} />
+        <Route exact path='/inicio' element={<Inicio />} />
         <Route exact path='/nosotros' element={<Nosotros />} />
         <Route exact path='/productos' element={<Productos />} />
         <Route exact path='/contacto' element={<Contacto />} />

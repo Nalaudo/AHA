@@ -1,23 +1,21 @@
 import React from 'react';
 import NotFoundPage from './pages/NotFoundPage.js';
 import NavBar from './components/NavBar/NavBar';
-import Inicio from './pages/Inicio';
-import Nosotros from './pages/Nosotros.js';
-import Productos from './pages/Productos';
-import Contacto from './pages/Contacto.js';
+import Home from './pages/Home';
+import Nosotros from './pages/Us.js';
+import Productos from './pages/Products';
+import Contacto from './pages/Contact.js';
 import Cart from './pages/Cart.js';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ItemListContainer from './components/itemListContainer/itemListContainer.js';
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <NavBar />
-      <ItemListContainer greeting={"HOLA MUNDO"} />
       <Routes>
-        <Route exact path='/' element={<Inicio />} />
-        <Route exact path='/AHA' element={<Inicio />} />
-        <Route exact path='/inicio' element={<Inicio />} />
+        <Route exact path='/' element={<Home />} />
+        <Route exact path='/AHA' element={<Home />} />
+        <Route exact path='/inicio' element={<Home />} />
         <Route exact path='/nosotros' element={<Nosotros />} />
         <Route exact path='/productos' element={<Productos />} />
         <Route exact path='/contacto' element={<Contacto />} />

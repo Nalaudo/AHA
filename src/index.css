@@ -1,21 +1,27 @@
 .bordernav {
   border-bottom: 2px black solid
 }
+
 .bordernav:hover {
-  border-bottom: solid 4px #EA1889;  
+  border-bottom: solid 4px #EA1889;
   transform: scaleY(1.5);
   transform: scale(1.1);
   transition: transform 400ms ease;
 }
+
 .carrito:hover {
   transform: scaleY(1.5);
   transform: scale(1.1);
   transition: transform 400ms ease;
 }
-a:link, a:visited, a:active {
-  text-decoration:none;
+
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
   color: black
 }
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

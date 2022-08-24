@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "../../styles";
+import styles from "./NavBarStyles";
 import logo from './logo.png';
-import {Link} from "react-router-dom"
-import {NavLink} from "react-router-dom"
+import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import CartWidget from "./CartWidget";
 
 const NavBar = () => {
@@ -19,7 +19,7 @@ const NavBar = () => {
                     <NavLink to={'/nosotros'} className='bordernav' style={styles.nosotrosbtn}>Nosotros</NavLink>
                     <NavLink to={'/productos'} className='bordernav' style={styles.productosbtn}>Productos</NavLink>
                     <NavLink to={'/contacto'} className='bordernav' style={styles.contactobtn}>Contacto</NavLink>
-                </nav>  
+                </nav>
                 <CartWidget />
             </div>
         </React.Fragment>

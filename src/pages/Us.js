@@ -3,7 +3,7 @@ import React from 'react'
 function Nosotros() {
   return (
     <main>
-        <h2>Esto es nosotros</h2>
+      <h2>Esto es nosotros</h2>
     </main>
   )
 }

@@ -1,19 +1,9 @@
 import React from 'react';
-import Counter from '../components/paraDesafios/ItemCount';
-
-const styles = {
-    main: {
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-    },
-}
+import ItemList from '../components/itemListContainer/ItemList';
 
 const Productos = () => {
     return (
-        <main style={styles.main}>
-            <Counter />
-        </main>
+        <ItemList />
     )
 }
 

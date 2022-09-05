@@ -1,10 +1,10 @@
 import React from 'react';
 import ItemList from '../components/itemListContainer/ItemList';
 
-const Productos = () => {
+const Products = () => {
     return (
         <ItemList />
     )
 }
 
-export default Productos;
+export default Products;

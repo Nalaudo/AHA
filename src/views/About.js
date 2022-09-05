@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Nosotros() {
+const About = () => {
   return (
     <main>
       <h2>Esto es nosotros</h2>
@@ -8,4 +8,4 @@ function Nosotros() {
   )
 }
 
-export default Nosotros
+export default About;

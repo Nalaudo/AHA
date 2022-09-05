@@ -1,12 +1,12 @@
 import React from 'react'
-import cart from './cart.png'
-import styles from './NavBarStyles'
-import { Link } from "react-router-dom"
+import cart from '../../assets/cart.png'
+import styles from './styles'
+import { Link } from 'react-router-dom'
 
-function CartWidget() {
+const CartWidget = () => {
   return (
     <Link style={styles.cartwidget} to={'/carrito'}>
-      <img className='carrito' src={cart} alt="CartWidget" style={styles.cartwidget} />
+      <img className='cart' src={cart} alt='CartWidget' style={styles.cartwidget} />
     </Link>
   )
 }

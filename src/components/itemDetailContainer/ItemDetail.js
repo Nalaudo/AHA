@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router';
+import Counter from './ItemCount';
 
 const styles = {
     section: {
@@ -26,17 +27,14 @@ const styles = {
 }
 
 const ItemDetail = () => {
-
     const [product, setProduct] = useState([])
 
     let { id } = useParams()
 
     useEffect(() => {
-        setTimeout(() => {
-            axios(
-                `https://my-json-server.typicode.com/Nalaudo/JSONserver/products/${id}`
-            ).then((res) => setProduct(res.data));
-        }, 2000);
+        axios(
+            `https://my-json-server.typicode.com/Nalaudo/JSONserver/products/${id}`
+        ).then((res) => setProduct(res.data));
     }, [id])
 
     return (
@@ -55,6 +53,9 @@ const ItemDetail = () => {
                 </div>
                 <div>
                     <p style={styles.p}>{product.features}</p>
+                </div>
+                <div>
+                    <Counter stock={product.stock} />
                 </div>
             </div>
         </section>

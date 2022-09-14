@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles";
 import logo from '../../assets/logo.png';
 import { Link } from "react-router-dom";
-import CartWidget from "./CartWidget";
+import CartWidget from '../Cart/CartWidget';
 
 const NavBar = () => {
     return (

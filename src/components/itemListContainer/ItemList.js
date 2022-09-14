@@ -24,7 +24,6 @@ const ItemList = () => {
             ).then((res) => setProducts(res.data));
             setLoading(false)
         }, 2000);
-
     }, [])
 
     return (
@@ -32,9 +31,9 @@ const ItemList = () => {
             {loading ? <Loading /> : null}
             {products.map((product) => {
                 return (
-                    <Link to={`/productos/${product.id}`}>
+                    <Link key={product.id} to={`/productos/${product.id}`}>
                         <div>
-                            <Item key={product.id} product={product} />
+                            <Item product={product} />
                         </div>
                     </Link>
                 )

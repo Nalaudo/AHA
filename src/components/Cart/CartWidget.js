@@ -1,6 +1,6 @@
 import React from 'react'
 import cart from '../../assets/cart.png'
-import styles from './styles'
+import styles from '../NavBar/styles'
 import { Link } from 'react-router-dom'
 
 const CartWidget = () => {

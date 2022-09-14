@@ -31,41 +31,32 @@ const styles = {
   },
 }
 
-const Counter = ({ stock }) => {
-  const [onAdd, setOnAdd] = useState()
-
-  const handlerOnAdd = (event) => {
-    setOnAdd(initial)
-    event.stopPropagation();
-  }
-
-  const [initial, setInitial] = useState(1)
-  if (stock === 0) {
-    setInitial(0)
-  }
+const Counter = ({ initial, stock, onAdd }) => {
+  const [count, setCount] = useState(initial)
   const handlerIncreaseInitial = (event) => {
-    if (initial < stock) {
-      setInitial(initial + 1)
+    if (count < stock) {
+      setCount(count + 1)
     }
     else {
       event.stopPropagation();
     }
   }
   const handlerDecreaseInitial = (event) => {
-    if (initial > 1) {
-      setInitial(initial - 1)
+    if (count > 1) {
+      setCount(count - 1)
     }
     else {
       event.stopPropagation();
     }
   }
+  const [clicked, setClicked] = useState(false)
 
   const CounterStructure = () => {
     return (
       <React.Fragment>
         <h2 style={styles.h2}>Cuanto desea comprar:</h2>
         <div style={styles.div}>
-          <h3 style={styles.h3}>{initial}</h3>
+          <h3 style={styles.h3}>{count}</h3>
           <div>
             <Button variant='contained' style={styles.button} onClick={handlerIncreaseInitial}>+</Button>
             <Button variant='contained' style={styles.button} onClick={handlerDecreaseInitial}>-</Button>
@@ -77,11 +68,25 @@ const Counter = ({ stock }) => {
   }
   return (
     <div>
-      {onAdd === initial ? null : <CounterStructure />}
-      <Button variant='contained' style={styles.addToCart} onClick={handlerOnAdd}>Agregar al carrito</Button>
-      <Link to={'/carrito'}>
-        <Button variant='contained' style={styles.finishBuying}>Terminar compra</Button>
-      </Link>
+      {clicked ?
+        <React.Fragment>
+          <Link to={'/productos'}>
+            <Button variant='contained' style={styles.finishBuying}>Seguir comprando</Button>
+          </Link>
+          <Link to={'/carrito'}>
+            <Button variant='contained' style={styles.finishBuying}>Terminar compra</Button>
+          </Link>
+        </React.Fragment>
+        :
+        <React.Fragment>
+          <CounterStructure />
+          <Button variant='contained' style={styles.addToCart} onClick={() => { onAdd(count); setClicked(true) }}>Agregar al carrito</Button>
+          <Link to={'/carrito'}>
+            <Button variant='contained' style={styles.finishBuying}>Terminar compra</Button>
+          </Link>
+        </React.Fragment>
+      }
+
     </div>
   )
 }

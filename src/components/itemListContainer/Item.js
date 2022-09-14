@@ -19,7 +19,7 @@ const Item = ({ product }) => {
                 />
                 <CardContent>
                     <Typography gutterBottom variant='h5' component='div'>
-                        {product.price}
+                        ${product.price}
                     </Typography>
                     <Typography gutterBottom variant='h6' component='div'>
                         {product.title}

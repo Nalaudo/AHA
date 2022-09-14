@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router';
 import Counter from './ItemCount';
+import { CartContext } from '../../context/CartContext';
 
 const styles = {
     section: {
@@ -27,6 +28,9 @@ const styles = {
 }
 
 const ItemDetail = () => {
+
+    const { agregarCarrito } = useContext(CartContext)
+
     const [product, setProduct] = useState([])
 
     let { id } = useParams()
@@ -36,6 +40,16 @@ const ItemDetail = () => {
             `https://my-json-server.typicode.com/Nalaudo/JSONserver/products/${id}`
         ).then((res) => setProduct(res.data));
     }, [id])
+
+    const handlerOnAdd = (quantity) => {
+        agregarCarrito({ ...product, quantity: quantity })
+    }
+
+    const NoStock = () => {
+        return (
+            <h2>Lo sentimos, pero no hay stock por el momento :(</h2>
+        )
+    }
 
     return (
         <section style={styles.section}>
@@ -49,13 +63,13 @@ const ItemDetail = () => {
                     <h2>{product.title}</h2>
                 </div>
                 <div>
-                    <h2>{product.price}</h2>
+                    <h2>${product.price}</h2>
                 </div>
                 <div>
                     <p style={styles.p}>{product.features}</p>
                 </div>
                 <div>
-                    <Counter stock={product.stock} />
+                    {product.stock === 0 ? <NoStock /> : <Counter initial={1} onAdd={handlerOnAdd} stock={product.stock} />}
                 </div>
             </div>
         </section>

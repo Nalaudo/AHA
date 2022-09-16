@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router';
 import Counter from './ItemCount';
-import { CartContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartContext';
 
 const styles = {
     section: {
@@ -29,7 +29,7 @@ const styles = {
 
 const ItemDetail = () => {
 
-    const { agregarCarrito } = useContext(CartContext)
+    const { agregarCarrito } = useCartContext()
 
     const [product, setProduct] = useState([])
 

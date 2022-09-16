@@ -29,7 +29,7 @@ const CartContextProvider = ({ children }) => {
         setCartList([])
     }
 
-    const cantidadItem = (prod) => {
+    const cantidadItem = () => {
         return cartList.reduce((acum, prod) => acum = acum + prod.quantity, 0)
     }
 

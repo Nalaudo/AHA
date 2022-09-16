@@ -1,16 +1,28 @@
 import React from 'react'
 import { useCartContext } from '../context/CartContext'
 import { Typography, Card, CardContent, CardMedia, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const styles = {
     item: {
         margin: '5px'
     },
-    div: {
+    div1: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
         marginTop: '20px'
+    },
+    div2: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        marginTop: '20px'
+    },
+    link: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
     },
     button: {
         margin: '5px'
@@ -39,12 +51,17 @@ const Cart = () => {
     return (
         <React.Fragment>
             {!cartList.length > 0 ?
-                <div style={styles.div}>
-                    <h2>Aún no has añadido nada en el carrito!</h2>
+                <div style={styles.div1}>
+                    <div style={styles.div2}>
+                        <h2>¡Aún no has añadido nada en el carrito!</h2>
+                        <Link style={styles.link} to={'/productos'}>
+                            <Button style={styles.button} variant="contained">¡Añade artículos ahora!</Button>
+                        </Link>
+                    </div>
                 </div>
                 :
                 <React.Fragment>
-                    <div style={styles.div}>
+                    <div style={styles.div1}>
                         {cartList.map(prod =>
                             <Card key={prod.id} style={styles.item} sx={{ maxWidth: 400 }}>
                                 <CardMedia
@@ -76,7 +93,7 @@ const Cart = () => {
                         )}
                     </div>
                     <h3 style={styles.h3} className="text-2xl font-bold py-8">Total: ${sumaPrecioItems()}</h3>
-                    <div style={styles.div}>
+                    <div style={styles.div1}>
                         <div className="pt-8 flex">
                             <Button style={styles.button} variant="contained">Check-Out</Button>
                             <Button style={styles.button} variant="contained" onClick={limpiarCarro}>Limpiar Carrito</Button>

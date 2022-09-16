@@ -41,11 +41,6 @@ const styles = {
         margin: '0px 10px 0px 10px',
         fontSize: '20px',
     },
-    cartwidget: {
-        margin: 'auto 210px 5px auto',
-        width: '50px',
-        height: '50px'
-    },
 }
 
 export default styles

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Item from './Item';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
+import { collection, query, getDocs, where } from 'firebase/firestore';
+import { db } from '../../firebase/config';
 
 const styles = {
     div: {
@@ -14,17 +15,27 @@ const styles = {
 }
 
 const ItemList = () => {
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
+	const getProducts = async () => {
+		const q = query(
+			collection(db, 'products'), where('category', '==', 'hogar') //usando el where, los amigurumis no aparecen, solo los de categoría hogar
+		);
+		const docs = [];
+		const querySnapshot = await getDocs(q);
+		querySnapshot.forEach((doc) => {
+			docs.push({ ...doc.data(), id: doc.id });
+		});
+		setProducts(docs);
+	};
+
+	useEffect(() => {
+        getProducts();
         setTimeout(() => {
-            axios(
-                'https://my-json-server.typicode.com/Nalaudo/JSONserver/products'
-            ).then((res) => setProducts(res.data));
             setLoading(false)
-        }, 2000);
-    }, [])
+        }, 1000);
+	}, []);
 
     return (
         <div style={styles.div}>

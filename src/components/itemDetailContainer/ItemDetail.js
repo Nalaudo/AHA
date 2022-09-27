@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useParams } from 'react-router';
 import Counter from './ItemCount';
 import { useCartContext } from '../../context/CartContext';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../firebase/config';
 
 const styles = {
     section: {
@@ -28,17 +29,19 @@ const styles = {
 }
 
 const ItemDetail = () => {
-
     const { agregarCarrito } = useCartContext()
 
     const [product, setProduct] = useState([])
+    const { id } = useParams()
 
-    let { id } = useParams()
+    const getProduct = async () => {
+        const docRef = doc(db, "products", id);
+        const docSnap = await getDoc(docRef);
+        setProduct(docSnap.data());
+    }
 
     useEffect(() => {
-        axios(
-            `https://my-json-server.typicode.com/Nalaudo/JSONserver/products/${id}`
-        ).then((res) => setProduct(res.data));
+        getProduct()
     }, [id])
 
     const handlerOnAdd = (quantity) => {
@@ -46,7 +49,7 @@ const ItemDetail = () => {
     }
 
     const NoStock = () => {
-        return (
+        return ( 
             <h2>Lo sentimos, pero no hay stock por el momento :(</h2>
         )
     }

@@ -36,6 +36,7 @@ const styles = {
     productosbtn: {
         margin: '0px 10px 0px 10px',
         fontSize: '20px',
+        cursor: 'pointer',
     },
     contactobtn: {
         margin: '0px 10px 0px 10px',

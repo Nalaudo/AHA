@@ -2,7 +2,8 @@ import React from "react";
 import styles from "./styles";
 import logo from '../../assets/logo.png';
 import { Link } from "react-router-dom";
-import CartWidget from '../Cart/CartWidget';
+import CartWidget from '../../views/Cart/CartWidget';
+import BasicMenu from './CategoriesDropdown';
 
 const NavBar = () => {
     return (
@@ -15,7 +16,7 @@ const NavBar = () => {
             <div style={styles.div}>
                 <Link to={'/'} className='bordernav' style={styles.iniciobtn}>Inicio</Link>
                 <Link to={'/nosotros'} className='bordernav' style={styles.nosotrosbtn}>Nosotros</Link>
-                <Link to={'/productos'} className='bordernav' style={styles.productosbtn}>Productos</Link>
+                <BasicMenu />
                 <Link to={'/contacto'} className='bordernav' style={styles.contactobtn}>Contacto</Link>
             </div>
             <CartWidget />

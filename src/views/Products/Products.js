@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Item from './Item';
+import Item from '../../components/itemListContainer/Item';
 import { Link } from 'react-router-dom';
-import Loading from '../Loading/Loading';
+import Loading from '../../components/Loading/Loading';
 import { collection, query, getDocs} from 'firebase/firestore';
 import { db } from '../../firebase/config';
 
@@ -20,7 +20,7 @@ const ItemList = () => {
 
 	const getProducts = async () => {
 		const q = query(
-			collection(db, 'products')
+			collection(db, 'products')//, where('category', '==', 'hogar') usando el where, los amigurumis no aparecen, solo los de categoría hogar
 		);
 		const docs = [];
 		const querySnapshot = await getDocs(q);

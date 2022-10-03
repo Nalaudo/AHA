@@ -1,5 +1,5 @@
 import React from "react";
-import { useCartContext } from "../context/CartContext";
+import { useCartContext } from "../../context/CartContext";
 import {
   Typography,
   Card,
@@ -58,7 +58,6 @@ const Cart = () => {
     sumaPrecioItems,
   } = useCartContext();
 
-  console.log(cartList)
   return (
     <React.Fragment>
       {!cartList.length > 0 ? (
@@ -122,9 +121,11 @@ const Cart = () => {
           </h3>
           <div style={styles.div1}>
             <div className="pt-8 flex">
-              <Button style={styles.button} variant="contained">
-                Check-Out
-              </Button>
+              <Link to={'/checkout'}>
+                <Button style={styles.button} variant="contained">
+                  Check-Out
+                </Button>
+              </Link>
               <Button
                 style={styles.button}
                 variant="contained"

@@ -1,56 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Item from '../../components/itemListContainer/Item';
-import { Link } from 'react-router-dom';
-import Loading from '../../components/Loading/Loading';
-import { collection, query, getDocs} from 'firebase/firestore';
-import { db } from '../../firebase/config';
+import React from 'react';
+import ItemList from '../../components/itemListContainer/ItemList';
 
-const styles = {
-    div: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        marginTop: '20px'
-    },
-}
-
-const ItemList = () => {
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true)
-
-	const getProducts = async () => {
-		const q = query(
-			collection(db, 'products')//, where('category', '==', 'hogar') usando el where, los amigurumis no aparecen, solo los de categoría hogar
-		);
-		const docs = [];
-		const querySnapshot = await getDocs(q);
-		querySnapshot.forEach((doc) => {
-			docs.push({ ...doc.data(), id: doc.id });
-		});
-		setProducts(docs);
-	};
-
-	useEffect(() => {
-        getProducts();
-        setTimeout(() => {
-            setLoading(false)
-        }, 1000);
-	}, []);
-
+const Products = () => {
     return (
-        <div style={styles.div}>
-            {loading ? <Loading /> : null}
-            {products.map((product) => {
-                return (
-                    <Link key={product.id} to={`/productos/${product.id}`}>
-                        <div>
-                            <Item product={product} />
-                        </div>
-                    </Link>
-                )
-            })}
-        </div>
+        <ItemList />
     )
 }
 
-export default ItemList;
+export default Products

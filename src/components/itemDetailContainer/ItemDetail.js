@@ -4,6 +4,7 @@ import Counter from './ItemCount';
 import { useCartContext } from '../../context/CartContext';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
+import { Typography, CardMedia } from '@mui/material';
 
 const styles = {
     section: {
@@ -22,10 +23,13 @@ const styles = {
     },
     p: {
         textAlign: 'left',
-        inlineSize: '250px',
+        inlineSize: '300px',
         overflowWrap: 'break-word',
         fontSize: '20px'
     },
+    separate: {
+        margin: '13px 0px'
+    }
 }
 
 const ItemDetail = () => {
@@ -49,29 +53,40 @@ const ItemDetail = () => {
     }
 
     const NoStock = () => {
-        return ( 
-            <h2>Lo sentimos, pero no hay stock por el momento :(</h2>
+        return (
+            <Typography variant="h5" gutterBottom>
+                Lo sentimos, pero no hay stock por el momento :(
+            </Typography>
         )
     }
 
     return (
         <section style={styles.section}>
             <div style={styles.div}>
-                <div>
-                    <img style={styles.img} src={product.pictureUrl} alt={product.title + " img"} />
-                </div>
+                <CardMedia
+                    component='img'
+                    alt={product.title + " img"}
+                    height={product.height}
+                    image={product.pictureUrl}
+                />
             </div>
             <div style={styles.div}>
-                <div>
-                    <h2>{product.title}</h2>
+                <div style={styles.separate}>
+                    <Typography variant="h3" gutterBottom>
+                        {product.title}
+                    </Typography>
                 </div>
-                <div>
-                    <h2>${product.price}</h2>
+                <div style={styles.separate}>
+                    <Typography variant="h4" gutterBottom>
+                        ${product.price}
+                    </Typography>
                 </div>
-                <div>
-                    <p style={styles.p}>{product.features}</p>
+                <div style={styles.separate}>
+                    <Typography style={styles.p} variant="body1" gutterBottom>
+                        {product.features}
+                    </Typography>
                 </div>
-                <div>
+                <div style={styles.separate}>
                     {product.stock === 0 ? <NoStock /> : <Counter initial={1} onAdd={handlerOnAdd} stock={product.stock} />}
                 </div>
             </div>

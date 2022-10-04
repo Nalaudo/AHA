@@ -34,6 +34,7 @@ const styles = {
     margin: "5px",
   },
   trashButton: {
+    marginLeft: '10px',
     height: "64px",
   },
   cardContent: {
@@ -85,7 +86,7 @@ const Cart = () => {
                 <CardContent style={styles.cardContent}>
                   <div>
                     <Typography gutterBottom variant="h5" component="div">
-                      {prod.price}
+                      ${prod.price}
                     </Typography>
                     <Typography gutterBottom variant="h6" component="div">
                       {prod.title}

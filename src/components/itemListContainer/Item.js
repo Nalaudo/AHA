@@ -13,13 +13,13 @@ const Item = ({ product }) => {
         <div style={styles.item}>
             <Link style={{
                 display: 'inline-block',
-            }} to={`/productos/${product.id}`}>
+            }} to={`/product/${product.id}`}>
                 <Card>
                     <CardActionArea>
                         <CardMedia
                             component='img'
                             alt={product.title + " img"}
-                            height={product.height}
+                            height="500"
                             image={product.pictureUrl}
                         />
                         <CardContent>

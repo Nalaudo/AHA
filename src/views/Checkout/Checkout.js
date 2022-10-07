@@ -38,6 +38,7 @@ const styles = {
 const Checkout = () => {
     const [orderID, setOrderID] = useState('')
     const [name, setName] = useState('')
+    const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [emailValid, setEmailValid] = useState('')
     const [phone, setPhone] = useState('')
@@ -47,7 +48,7 @@ const Checkout = () => {
         e.preventDefault()
 
         const buyOrder = {}
-        buyOrder.buyer = { name, email, phone }
+        buyOrder.buyer = { name, lastName, email, phone }
         buyOrder.total = sumaPrecioItems()
         buyOrder.items = cartList.map(cartItem => {
             const id = cartItem.id
@@ -64,6 +65,7 @@ const Checkout = () => {
         });
         setOrderID(docRef.id);
         setName('')
+        setLastName('')
         setEmail('')
         setEmailValid('')
         setPhone('')
@@ -71,6 +73,7 @@ const Checkout = () => {
 
     const notValid =
         !(name.length &&
+            lastName.length &&
             email.length &&
             phone.length &&
             emailValid.length > 0 &&
@@ -83,7 +86,7 @@ const Checkout = () => {
                 <div style={styles.div1}>
                     <div style={styles.div2}>
                         <h2>¡Aún no has añadido nada en el carrito!</h2>
-                        <Link style={styles.link} to={"/productos"}>
+                        <Link style={styles.link} to={"/"}>
                             <Button style={styles.button} variant="contained">
                                 ¡Añade artículos ahora!
                             </Button>
@@ -100,6 +103,8 @@ const Checkout = () => {
                                 generateOrder={generateOrder}
                                 name={name}
                                 setName={setName}
+                                lastName={lastName}
+                                setLastName={setLastName}
                                 email={email}
                                 setEmail={setEmail}
                                 emailValid={emailValid}

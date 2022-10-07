@@ -14,10 +14,11 @@ const styles = {
     margin: "5px",
   },
   div1: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    marginTop: "20px",
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    margin: '20px 0px'
   },
   div2: {
     display: "flex",
@@ -65,7 +66,7 @@ const Cart = () => {
         <div style={styles.div1}>
           <div style={styles.div2}>
             <h2>¡Aún no has añadido nada en el carrito!</h2>
-            <Link style={styles.link} to={"/productos"}>
+            <Link style={styles.link} to={"/"}>
               <Button style={styles.button} variant="contained">
                 ¡Añade artículos ahora!
               </Button>
@@ -80,7 +81,7 @@ const Cart = () => {
                 <CardMedia
                   component="img"
                   alt={prod.title + " img"}
-                  height={prod.height}
+                  height="500"
                   image={prod.pictureUrl}
                 />
                 <CardContent style={styles.cardContent}>

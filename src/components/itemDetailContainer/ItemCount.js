@@ -70,10 +70,10 @@ const Counter = ({ initial, stock, onAdd }) => {
     <div>
       {clicked ?
         <React.Fragment>
-          <Link to={'/productos'}>
+          <Link to={'/'}>
             <Button variant='contained' style={styles.finishBuying}>Seguir comprando</Button>
           </Link>
-          <Link to={'/carrito'}>
+          <Link to={'/cart'}>
             <Button variant='contained' style={styles.finishBuying}>Terminar compra</Button>
           </Link>
         </React.Fragment>
@@ -81,7 +81,7 @@ const Counter = ({ initial, stock, onAdd }) => {
         <React.Fragment>
           <CounterStructure />
           <Button variant='contained' style={styles.addToCart} onClick={() => { onAdd(count); setClicked(true) }}>Agregar al carrito</Button>
-          <Link to={'/carrito'}>
+          <Link to={'/cart'}>
             <Button variant='contained' style={styles.finishBuying} onClick={() => onAdd(count)}>Comprar ahora</Button>
           </Link>
         </React.Fragment>

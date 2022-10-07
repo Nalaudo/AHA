@@ -3,28 +3,33 @@ import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
 
 const styles = {
-    link: {
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-    },
-    button: {
-      margin: "5px",
-    },
-  };
+  div1: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    margin: "30vh 0px"
+  },
+  div2: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  },
+};
 
 const NotFoundPage = () => {
-    return (
-        <React.Fragment>
-            <h2>Error 404</h2>
-            <h3>Página no encontrada</h3>
-            <Link style={styles.link} to={"/productos"}>
-              <Button style={styles.button} variant="contained">
-                ¡Añade artículos ahora!
-              </Button>
-            </Link>
-        </React.Fragment>
-    )
+  return (
+    <div style={styles.div1}>
+      <div style={styles.div2}>
+        <h2>Error 404</h2>
+        <h3>Página no encontrada</h3>
+        <Link to={"/"}>
+          <Button variant="contained">
+            ¡Añade artículos ahora!
+          </Button>
+        </Link>
+      </div>
+    </div>
+  )
 }
 
 export default NotFoundPage;

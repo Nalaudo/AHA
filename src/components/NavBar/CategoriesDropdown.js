@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import styles from "./styles";
 import { Link } from 'react-router-dom';
 
-export default function BasicMenu() {
+const BasicMenu = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -25,7 +25,7 @@ export default function BasicMenu() {
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
             >
-                Productos
+                Categorías
             </p>
             <Menu
                 id="basic-menu"
@@ -36,22 +36,17 @@ export default function BasicMenu() {
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                <Link to='/productos'><MenuItem onClick={handleClose}>
-
-                    Ver todos
-
-                </MenuItem></Link>
-                <Link to='/categoria/amigurumis'><MenuItem onClick={handleClose}>
+                <Link to='/category/amigurumis'><MenuItem onClick={handleClose}>
 
                     Amigurumis
 
                 </MenuItem></Link>
-                <Link to='/categoria/hogar'><MenuItem onClick={handleClose}>
+                <Link to='/category/hogar'><MenuItem onClick={handleClose}>
 
                     Hogar
 
                 </MenuItem></Link>
-                <Link to='/categoria/accesorios'>
+                <Link to='/category/accesorios'>
                     <MenuItem onClick={handleClose}>
 
                         Accesorios
@@ -62,3 +57,5 @@ export default function BasicMenu() {
         </React.Fragment>
     );
 }
+
+export default BasicMenu

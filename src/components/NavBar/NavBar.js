@@ -15,9 +15,8 @@ const NavBar = () => {
             </Link>
             <div style={styles.div}>
                 <Link to={'/'} className='bordernav' style={styles.iniciobtn}>Inicio</Link>
-                <Link to={'/nosotros'} className='bordernav' style={styles.nosotrosbtn}>Nosotros</Link>
+                <Link to={'/about'} className='bordernav' style={styles.nosotrosbtn}>Nosotros</Link>
                 <BasicMenu />
-                <Link to={'/contacto'} className='bordernav' style={styles.contactobtn}>Contacto</Link>
             </div>
             <CartWidget />
         </header>

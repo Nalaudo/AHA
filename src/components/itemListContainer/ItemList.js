@@ -10,12 +10,7 @@ const styles = {
         flexWrap: 'wrap',
         flexDirection: 'row',
         justifyContent: 'center',
-        marginTop: '20px'
-    },
-    link: {
-        display: 'inline-block',
-        width: '32px',
-        height: '32px',
+        margin: '20px 0px'
     },
 }
 
@@ -36,20 +31,24 @@ const ItemList = () => {
     };
 
     useEffect(() => {
-        getProducts();
-        setTimeout(() => {
+        getProducts().then(() => {
             setLoading(false)
-        }, 1000);
+        })
     }, []);
 
     return (
         <div style={styles.div}>
-            {loading ? <Loading /> : null}
-            {products.map((product) => {
-                return (
-                    <Item key={product.id} product={product} />
-                )
-            })}
+            {loading ? (<Loading />) : (
+                <React.Fragment>
+                    {products.map((product) => {
+                        return (
+                            <Item key={product.id} product={product} />
+                        )
+                    })
+                    }
+                </React.Fragment>
+            )}
+
         </div>
     )
 }

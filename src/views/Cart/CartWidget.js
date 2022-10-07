@@ -24,8 +24,8 @@ const styles = {
 const CartWidget = () => {
   const { cantidadItem } = useCartContext()
   return (
-    <Link style={styles.link} to={'/carrito'}>
-      <h3 style={styles.cantidadItem}>{cantidadItem() !== 0 && cantidadItem()}</h3>
+    <Link style={styles.link} to={'/cart'}>
+      <h4 style={styles.cantidadItem}>{cantidadItem() !== 0 && cantidadItem()}</h4>
       <img className='cart' src={cart} alt='CartWidget' style={styles.cartwidget} />
     </Link>
   )

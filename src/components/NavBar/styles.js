@@ -1,6 +1,7 @@
 const styles = {
     header: {
         display: 'flex',
+        flexWrap: 'wrap',
         flexDirection: 'row',
         justifyContent: 'inherit',
     },
@@ -19,6 +20,7 @@ const styles = {
     },
     div: {
         display: 'flex',
+        flexWrap: 'wrap',
         flexDirection: 'row',
         justifyContent: 'center',
         userSelect: 'none',

@@ -16,7 +16,7 @@ const styles = {
     },
 };
 
-const Form = ({ generateOrder, name, setName, email, setEmail, emailValid, setEmailValid, phone, setPhone, notValid }) => {
+const Form = ({ generateOrder, name, setName, lastName, setLastName, email, setEmail, emailValid, setEmailValid, phone, setPhone, notValid }) => {
     return (
         <React.Fragment>
             <form
@@ -31,6 +31,15 @@ const Form = ({ generateOrder, name, setName, email, setEmail, emailValid, setEm
                         required
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        type="text" />
+                    <TextField
+                        style={styles.field}
+                        id="lastName"
+                        variant="outlined"
+                        label="Apellido"
+                        required
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
                         type="text" />
                     <TextField
                         style={styles.field}
@@ -62,7 +71,7 @@ const Form = ({ generateOrder, name, setName, email, setEmail, emailValid, setEm
                         type="number" />
                 </div>
                 <div style={styles.button}>
-                    <Link to="/carrito">
+                    <Link to="/cart">
                         <Button> ← Atrás</Button>
                     </Link>
                     <Button

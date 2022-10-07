@@ -1,15 +1,16 @@
 {
-  "main.css": "/AHA/static/css/main.76515f93.chunk.css",
-  "main.js": "/AHA/static/js/main.3fa171f6.chunk.js",
-  "main.js.map": "/AHA/static/js/main.3fa171f6.chunk.js.map",
-  "static/js/1.36733b10.chunk.js": "/AHA/static/js/1.36733b10.chunk.js",
-  "static/js/1.36733b10.chunk.js.map": "/AHA/static/js/1.36733b10.chunk.js.map",
+  "main.css": "/AHA/static/css/main.47827b28.chunk.css",
+  "main.js": "/AHA/static/js/main.75c31c2a.chunk.js",
+  "main.js.map": "/AHA/static/js/main.75c31c2a.chunk.js.map",
+  "static/js/1.94be4d14.chunk.js": "/AHA/static/js/1.94be4d14.chunk.js",
+  "static/js/1.94be4d14.chunk.js.map": "/AHA/static/js/1.94be4d14.chunk.js.map",
   "runtime~main.js": "/AHA/static/js/runtime~main.0456251a.js",
   "runtime~main.js.map": "/AHA/static/js/runtime~main.0456251a.js.map",
   "static/media/logo.png": "/AHA/static/media/logo.870a78f3.png",
+  "static/media/aboutImg.jpg": "/AHA/static/media/aboutImg.b2368f17.jpg",
   "static/media/cart.png": "/AHA/static/media/cart.6ffe1cb6.png",
-  "static/css/main.76515f93.chunk.css.map": "/AHA/static/css/main.76515f93.chunk.css.map",
+  "static/css/main.47827b28.chunk.css.map": "/AHA/static/css/main.47827b28.chunk.css.map",
   "index.html": "/AHA/index.html",
-  "precache-manifest.bd65b9eeaec6b1f0fe572b0336483b6d.js": "/AHA/precache-manifest.bd65b9eeaec6b1f0fe572b0336483b6d.js",
+  "precache-manifest.7d8192ab3cfeb6f87ba1d0553ef54807.js": "/AHA/precache-manifest.7d8192ab3cfeb6f87ba1d0553ef54807.js",
   "service-worker.js": "/AHA/service-worker.js"
 }

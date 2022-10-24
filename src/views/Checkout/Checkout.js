@@ -4,8 +4,9 @@ import { collection, addDoc } from 'firebase/firestore'
 import { Timestamp } from 'firebase/firestore'
 import { db } from '../../firebase/config'
 import Form from './Form'
-import { Alert, Button } from '@mui/material';
+import { Button } from '@mui/material';
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 const styles = {
     div: {
@@ -42,7 +43,7 @@ const Checkout = () => {
     const [email, setEmail] = useState('')
     const [emailValid, setEmailValid] = useState('')
     const [phone, setPhone] = useState('')
-    const { cartList, sumaPrecioItems } = useCartContext()
+    const { cartList, sumaPrecioItems, limpiarCarro } = useCartContext()
 
     const generateOrder = async (e) => {
         e.preventDefault()
@@ -114,7 +115,19 @@ const Checkout = () => {
                                 notValid={notValid}
                             />
                         </div>
-                        {orderID && <Alert severity="success">Gracias por tu compra! Tu código de referencia es: {orderID}</Alert>}
+                        {orderID && Swal.fire({
+                            title: '¡Gracias por tu compra!',
+                            text: `Su orden de compra es: ${orderID}`,
+                            icon: 'success',
+                            showCancelButton: false,
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'OK!'
+                        }).then(() => {
+                            return (
+                                window.location = "/",
+                                limpiarCarro
+                            )
+                        })}
                     </div>
                 </div>
             )}

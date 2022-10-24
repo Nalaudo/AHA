@@ -17,6 +17,7 @@ const styles = {
 };
 
 const Form = ({ generateOrder, name, setName, lastName, setLastName, email, setEmail, emailValid, setEmailValid, phone, setPhone, notValid }) => {
+    
     return (
         <React.Fragment>
             <form

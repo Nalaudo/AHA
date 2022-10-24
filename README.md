@@ -16,5 +16,5 @@ Las dependencias que se utilizaron para este proyecto son:
 - [ ] Material UI
 
 
-![](https://user-images.githubusercontent.com/81595307/178622492-b920d59b-44bd-4a54-aa0b-24fd0e2ac4c1.png)
+![](https://github.com/Nalaudo/AHA/blob/main/Demostraci%C3%B3n.gif)
 
